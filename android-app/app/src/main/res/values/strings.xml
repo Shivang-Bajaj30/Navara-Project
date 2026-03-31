@@ -9,4 +9,11 @@
     <string name="sign_up">Sign Up</string>
     <string name="toggle_password_visibility">Toggle password visibility</string>
     <string name="background_ai_image">Background AI Image</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="continue_text">Continue</string>
+    <string name="or_sign_up_with">or sign up with</string>
+    <string name="already_have_an_account">Already have an account? </string>
+    <string name="login_link">Login</string>
+    <string name="apple_icon">Apple Icon</string>
+    <string name="google_icon">Google Icon</string>
 </resources>
