@@ -40,8 +40,8 @@ public class MapBackgroundManager {
     private final FusedLocationProviderClient fusedLocationClient;
     private final OkHttpClient client = new OkHttpClient();
 
-    // Note: Use the provided Google Maps API Key
-    private static final String API_KEY = "AIzaSyDtrj-jOWQShU9cDzuAOpcsTXtBnLuTZCc";
+    // The API Key is now securely stored in local.properties and accessed via BuildConfig
+    private static final String API_KEY = BuildConfig.MAPS_API_KEY;
 
     public MapBackgroundManager(Context context, ImageView backgroundImage) {
         this.context = context;
