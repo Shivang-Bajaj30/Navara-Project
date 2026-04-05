@@ -12,4 +12,13 @@
     <color name="weather_cloudy">#D1D9E0</color>
     <color name="weather_rainy">#8E9AAF</color>
     <color name="weather_night">#1B262C</color>
+
+    <!-- Home Page Colors (Dark Mode) -->
+    <color name="home_background">#121212</color>
+    <color name="card_background">#1E1E1E</color>
+    <color name="search_bar_bg">#2A2A2A</color>
+    <color name="accent_blue">#2D7BFA</color>
+    <color name="bottom_nav_bg">#1E1E1E</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
 </resources>

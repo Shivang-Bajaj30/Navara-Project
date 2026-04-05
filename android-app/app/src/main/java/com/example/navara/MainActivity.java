@@ -69,6 +69,12 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setScaleX(0.8f);
         btnLogin.animate().alpha(1f).scaleX(1f).setDuration(600).setStartDelay(800).setInterpolator(new OvershootInterpolator()).start();
 
+        btnLogin.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        });
+
         if (signUpContainer != null) {
             signUpContainer.setAlpha(0f);
             signUpContainer.animate().alpha(1f).setDuration(500).setStartDelay(1000).start();

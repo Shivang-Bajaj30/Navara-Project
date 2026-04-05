@@ -19,4 +19,5 @@
     <string name="welcome_title">Safe Travel for\nEveryone</string>
     <string name="welcome_subtitle">Find the safest routes with easy access\nto hospitals, smooth roads, and clean facilities.</string>
     <string name="get_started">Get started</string>
+    <string name="search_hint">Search</string>
 </resources>
