@@ -75,8 +75,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         TextView tvSignUp = findViewById(R.id.tvSignUp);
+        TextView tvForgotPassword = findViewById(R.id.tvForgotPassword);
+
         tvSignUp.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        });
+
+        tvForgotPassword.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ForgotPasswordActivity.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
