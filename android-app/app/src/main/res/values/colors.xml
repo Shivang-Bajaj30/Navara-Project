@@ -6,4 +6,10 @@
     <color name="dark_grey_overlay">#CC1E1E1E</color>
     <color name="input_stroke">#444444</color>
     <color name="text_hint">#888888</color>
+
+    <!-- Weather Backgrounds - More Distinct Colors -->
+    <color name="weather_sunny">#BAE1FF</color>
+    <color name="weather_cloudy">#D1D9E0</color>
+    <color name="weather_rainy">#8E9AAF</color>
+    <color name="weather_night">#1B262C</color>
 </resources>

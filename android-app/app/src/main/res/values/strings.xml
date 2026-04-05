@@ -16,4 +16,7 @@
     <string name="login_link">Login</string>
     <string name="apple_icon">Apple Icon</string>
     <string name="google_icon">Google Icon</string>
+    <string name="welcome_title">Safe Travel for\nEveryone</string>
+    <string name="welcome_subtitle">Find the safest routes with easy access\nto hospitals, smooth roads, and clean facilities.</string>
+    <string name="get_started">Get started</string>
 </resources>
