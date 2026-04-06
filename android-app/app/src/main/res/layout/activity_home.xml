@@ -8,203 +8,229 @@
     android:background="@color/home_background"
     tools:context=".HomeActivity">
 
-    <!-- Top Bar -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/topBar"
+    <!-- Weather Background Image - Fixed to background -->
+    <ImageView
+        android:id="@+id/weatherOverlay"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="350dp"
+        android:alpha="0.8"
+        android:contentDescription="Weather Background"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_sunny"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/ivMenu"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/social_button_background"
-            android:contentDescription="Menu"
-            android:padding="10dp"
-            android:src="@android:drawable/ic_menu_sort_by_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/white" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/ivProfile"
-            app:layout_constraintStart_toEndOf="@id/ivMenu"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="UseCompoundDrawables">
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:contentDescription="Location Icon"
-                android:src="@android:drawable/ic_menu_mylocation"
-                app:tint="@color/accent_blue" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:text="San Francisco"
-                android:textColor="@color/text_primary"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/ivProfile"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/social_button_background"
-            android:contentDescription="Profile"
-            android:padding="8dp"
-            android:src="@android:drawable/ic_menu_gallery"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/white" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Gradient Overlay - Fixed to background -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="@drawable/home_background_gradient"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:clipToPadding="false"
         app:layout_constraintBottom_toTopOf="@id/bottomNav"
-        app:layout_constraintTop_toBottomOf="@id/topBar">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:orientation="vertical">
 
-            <!-- Title Section -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Travel &amp; Hike"
-                android:textColor="@color/text_primary"
-                android:textSize="32sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp"
-                android:text="🕒 10:44 am"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
-
-            <!-- Search Bar -->
-            <LinearLayout
+            <!-- Top Bar - Now inside ScrollView but with top padding -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/topBar"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/input_background"
-                android:backgroundTint="@color/search_bar_bg"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                tools:ignore="UseCompoundDrawables">
+                android:layout_height="wrap_content"
+                android:padding="20dp">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:contentDescription="@string/search_hint"
-                    android:src="@android:drawable/ic_menu_search"
-                    app:tint="@color/text_hint" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="Search your place"
-                    android:textColor="@color/text_hint"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <!-- Browse by activity -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Browse by activity"
-                android:textColor="@color/text_primary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:scrollbars="none">
+                    android:id="@+id/ivMenu"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/social_button_background"
+                    android:contentDescription="Menu"
+                    android:padding="10dp"
+                    android:src="@android:drawable/ic_menu_sort_by_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/ivProfile"
+                    app:layout_constraintStart_toEndOf="@id/ivMenu"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="UseCompoundDrawables">
 
-                    <!-- Activity Items -->
-                    <include layout="@layout/item_activity" />
-                    <include layout="@layout/item_activity" />
-                    <include layout="@layout/item_activity" />
-                    <include layout="@layout/item_activity" />
-                    <include layout="@layout/item_activity" />
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:contentDescription="Location Icon"
+                        android:src="@android:drawable/ic_menu_mylocation"
+                        app:tint="@color/text_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="San Francisco"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
                 </LinearLayout>
-            </HorizontalScrollView>
 
-            <!-- Recommended Section -->
-            <RelativeLayout
+                <ImageView
+                    android:id="@+id/ivProfile"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/social_button_background"
+                    android:contentDescription="Profile"
+                    android:padding="8dp"
+                    android:src="@android:drawable/ic_menu_gallery"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp">
+                android:orientation="vertical"
+                android:padding="20dp">
 
+                <!-- Title Section -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Recommended"
+                    android:layout_gravity="center"
+                    android:text="Travel with Safety"
                     android:textColor="@color/text_primary"
-                    android:textSize="18sp"
+                    android:textSize="32sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="See all >"
-                    android:textColor="@color/accent_blue"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:text="🕒 10:44 am"
+                    android:textColor="@color/text_secondary"
                     android:textSize="14sp" />
-            </RelativeLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
+                <!-- Search Bar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/input_background"
+                    android:backgroundTint="@color/search_bar_bg"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    tools:ignore="UseCompoundDrawables">
 
-                <include
-                    layout="@layout/item_recommendation"
-                    android:layout_width="0dp"
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/search_hint"
+                        android:src="@android:drawable/ic_menu_search"
+                        app:tint="@color/text_hint" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="@string/search_your_place"
+                        android:textColor="@color/text_hint"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- Browse by activity -->
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_marginTop="32dp"
+                    android:text="@string/browse_by_activity"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                <View
-                    android:layout_width="16dp"
-                    android:layout_height="0dp" />
-
-                <include
-                    layout="@layout/item_recommendation"
-                    android:layout_width="0dp"
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_marginTop="16dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- Activity Items -->
+                        <include layout="@layout/item_activity" />
+                        <include layout="@layout/item_activity" />
+                        <include layout="@layout/item_activity" />
+                        <include layout="@layout/item_activity" />
+                        <include layout="@layout/item_activity" />'
+                        <include layout="@layout/item_activity" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!-- Recommended Section -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Recommended"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="See all >"
+                        android:textColor="@color/accent_blue"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <include
+                        layout="@layout/item_recommendation"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <View
+                        android:layout_width="16dp"
+                        android:layout_height="0dp" />
+
+                    <include
+                        layout="@layout/item_recommendation"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
             </LinearLayout>
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -221,7 +247,7 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:background="@drawable/button_background"
-            android:backgroundTint="@color/accent_blue"
+            android:backgroundTint="@color/lime_green"
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingStart="20dp"
@@ -237,14 +263,14 @@
                 android:layout_height="24dp"
                 android:contentDescription="Home"
                 android:src="@android:drawable/ic_menu_today"
-                app:tint="@color/white" />
+                app:tint="@color/black" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="Home"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
         </LinearLayout>
 

@@ -20,4 +20,6 @@
     <string name="welcome_subtitle">Find the safest routes with easy access\nto hospitals, smooth roads, and clean facilities.</string>
     <string name="get_started">Get started</string>
     <string name="search_hint">Search</string>
+    <string name="browse_by_activity">Browse by activity</string>
+    <string name="search_your_place">Search your place</string>
 </resources>

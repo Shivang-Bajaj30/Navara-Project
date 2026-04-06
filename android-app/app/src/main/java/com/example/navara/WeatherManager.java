@@ -143,14 +143,16 @@ public class WeatherManager {
         }
 
         int currentColor = 0xFFBAE1FF;
-        if (rootLayout.getBackground() instanceof ColorDrawable) {
-            currentColor = ((ColorDrawable) rootLayout.getBackground()).getColor();
-        }
+        if (rootLayout != null) {
+            if (rootLayout.getBackground() instanceof ColorDrawable) {
+                currentColor = ((ColorDrawable) rootLayout.getBackground()).getColor();
+            }
 
-        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), currentColor, color);
-        colorAnimation.setDuration(1500);
-        colorAnimation.addUpdateListener(anim -> rootLayout.setBackgroundColor((int) anim.getAnimatedValue()));
-        colorAnimation.start();
+            ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), currentColor, color);
+            colorAnimation.setDuration(1500);
+            colorAnimation.addUpdateListener(anim -> rootLayout.setBackgroundColor((int) anim.getAnimatedValue()));
+            colorAnimation.start();
+        }
 
         if (weatherOverlay != null) {
             weatherOverlay.setVisibility(View.VISIBLE);
